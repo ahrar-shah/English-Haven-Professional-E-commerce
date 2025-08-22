@@ -1,0 +1,63 @@
+<!doctype html><html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Admin — English Haven</title><link rel="stylesheet" href="/style.css"/></head><body>
+<header><div class="brand"><div class="logo"></div><h1>English Haven — Admin</h1></div>
+<nav class="nav">
+  <a class="btn" href="/portal">Student Portal</a>
+  <form method="post" action="/logout"><button class="btn">Logout</button></form>
+</nav>
+</header>
+
+<div class="grid" style="max-width:1200px">
+
+  <div class="card">
+    <h3>Create new batch</h3>
+    <form method="post" action="/admin/batch/new">
+      <div class="field"><label>Batch name</label><input name="name" placeholder="e.g., A1-Weeknights"/></div>
+      <div class="field"><label>Time slot</label><input name="timeSlot" placeholder="Mon/Wed 7–8 PM"/></div>
+      <button class="btn cta">Save</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <h3>Create quiz</h3>
+    <form method="post" action="/admin/quiz/new">
+      <div class="field"><label>Batch</label>
+        <select name="batchId">
+          <% batches.forEach(b=>{ %>
+            <option value="<%= b.id %>"><%= b.name %> — <%= b.timeSlot %></option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="field"><label>Title</label><input name="title" placeholder="Weekly Quiz 1"/></div>
+      <div class="field"><label>Time limit (seconds)</label><input name="timeLimit" type="number" value="600"/></div>
+      <div class="field"><label>Max tries</label><input name="maxTries" type="number" value="3"/></div>
+      <div class="field"><label>Questions (JSON)</label>
+        <textarea name="questions" rows="6" placeholder='[{"text":"Hello in English?","options":["Hello","Hola","Bonjour"],"answer":"Hello"}]'></textarea>
+      </div>
+      <button class="btn cta">Create Quiz</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <h3>Users & Enrollments</h3>
+    <table>
+      <tr><th>Name</th><th>Email</th><th>Enrolled</th><th>Batch</th><th>Timing</th><th>Payment</th><th>Proof</th></tr>
+      <% users.filter(u=>u.role==='student').forEach(u=>{ 
+          const e = enrollments.find(x=>x.userId===u.id)||{}; %>
+        <tr>
+          <td><%= u.name %></td>
+          <td><%= u.email %></td>
+          <td><%= e.id ? 'Yes':'No' %></td>
+          <td><%= e.batchId||'' %></td>
+          <td><%= e.timing||'' %></td>
+          <td><%= e.payment ? 'Done':'Not done' %></td>
+          <td><% if (e.payment && e.payment.proof){ %><a class="btn" href="/proof/<%= u.id %>" target="_blank">View</a><% } else { %>-<% } %></td>
+        </tr>
+      <% }) %>
+    </table>
+  </div>
+
+  <div class="card small">Online class at WhatsApp number: +92 322 2694045</div>
+</div>
+<a class="whatsapp" href="https://wa.me/923222694045" target="_blank">WhatsApp us: +92 322 2694045</a>
+</body></html>

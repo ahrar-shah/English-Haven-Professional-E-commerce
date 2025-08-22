@@ -1,0 +1,34 @@
+<!doctype html><html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Student Portal — English Haven</title><link rel="stylesheet" href="/style.css"/></head><body>
+<header><div class="brand"><div class="logo"></div><h1>English Haven — Student Portal</h1></div>
+<nav class="nav">
+  <form method="post" action="/logout"><button class="btn">Logout</button></form>
+</nav>
+</header>
+<div class="grid" style="max-width:1100px">
+  <div class="card">
+    <h3>Dashboard</h3>
+    <p><b>Name:</b> <%= user.name %> — <b>Email:</b> <%= user.email %></p>
+    <p><b>Course:</b> English Language — <b>Batch:</b> <%= enrollment.batchId %> — <b>Timing:</b> <%= enrollment.timing %></p>
+    <p><b>Payments:</b> <span class="tag <%= paidLabel==='Paid' ? 'success':'danger' %>"><%= paidLabel %></span></p>
+    <p class="small">Online class at WhatsApp number: +92 322 2694045</p>
+  </div>
+
+  <div class="card">
+    <h3>Attendance</h3>
+    <form method="post" action="/attendance/mark"><button class="btn cta">Mark attendance</button></form>
+    <p class="small">Once marked, stays locked for 24 hours.</p>
+  </div>
+
+  <div class="card">
+    <h3>Quizzes</h3>
+    <% if (!quizzes.length){ %><p class="small">No quizzes yet.</p><% } %>
+    <ul>
+    <% quizzes.forEach(q=>{ %>
+      <li style="margin:8px 0"><a class="btn" href="/quiz/<%= q.id %>">Start: <%= q.title %></a></li>
+    <% }) %>
+    </ul>
+  </div>
+</div>
+<a class="whatsapp" href="https://wa.me/923222694045" target="_blank">WhatsApp us: +92 322 2694045</a>
+</body></html>

@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sign up — English Haven</title><link rel="stylesheet" href="/style.css"/></head><body>
+<header><div class="brand"><div class="logo"></div><h1>English Haven</h1></div></header>
+<div class="grid" style="max-width:700px">
+  <div class="card">
+    <h3>Create your account</h3>
+    <% if (error){ %><p class="tag danger"><%= error %></p><% } %>
+    <form method="post" action="/signup">
+      <div class="field"><label>Full name</label><input name="name" placeholder="Your name"/></div>
+      <div class="field"><label>Email</label><input name="email" type="email" placeholder="you@example.com"/></div>
+      <div class="field"><label>Phone</label><input name="phone" placeholder="+92 ..."/></div>
+      <div class="field"><label>Password</label><input name="password" type="password" placeholder="••••••••"/></div>
+      <button class="btn cta">Create account</button>
+    </form>
+  </div>
+  <div class="card small">Online class at WhatsApp number: +92 322 2694045</div>
+</div>
+<a class="whatsapp" href="https://wa.me/923222694045" target="_blank">WhatsApp us: +92 322 2694045</a>
+</body></html>

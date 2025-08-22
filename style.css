@@ -1,0 +1,30 @@
+:root{--bg:#0b1220;--card:#111a2e;--muted:#7f8baa;--acc:#5ee3ff;--acc2:#9bff8a}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(120deg,#0b1220,#0e1a32);color:white;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;min-height:100vh}
+a{color:var(--acc);text-decoration:none}
+header,footer{padding:16px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:rgba(11,18,32,.7);backdrop-filter:blur(8px);z-index:10}
+.brand{display:flex;gap:12px;align-items:center}
+.brand .logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(140deg,var(--acc),var(--acc2));box-shadow:0 8px 30px rgba(94,227,255,.4)}
+.brand h1{font-size:18px;margin:0}
+.nav{display:flex;gap:14px;flex-wrap:wrap}
+.btn{padding:10px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,#1a2642,#131f3b);cursor:pointer;color:white}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(0,0,0,.3)}
+.cta{background:linear-gradient(180deg,#1f2f57,#0e214a);border-color:#254b7a}
+.hero{display:grid;gap:18px;padding:40px 20px;text-align:center;max-width:980px;margin:0 auto}
+.hero h2{font-size:36px;margin:0}
+.hero p{color:var(--muted);margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;padding:20px;max-width:1100px;margin:0 auto}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:18px;box-shadow:0 16px 40px rgba(0,0,0,.3)}
+.field{display:grid;gap:8px;margin:10px 0}
+input,select,textarea{width:100%;padding:12px 12px;border-radius:12px;border:1px solid #2a3b61;background:#0d1730;color:white}
+label{color:#b7c3e8;font-size:14px}
+table{width:100%;border-collapse:separate;border-spacing:0 10px}
+th,td{text-align:left;padding:10px 12px;background:#0e1a32}
+th{background:#0b1a3b}
+tr{border-radius:14px}
+.whatsapp{position:fixed;right:16px;bottom:16px;display:flex;gap:10px;align-items:center;background:#25D366;color:#001b08;padding:10px 14px;border-radius:999px;box-shadow:0 12px 28px rgba(0,0,0,.35)}
+.small{font-size:12px;color:#a5b3d8}
+.tag{display:inline-block;padding:4px 8px;border-radius:999px;background:#132551;border:1px solid #1f3b7a;color:#9bc0ff;font-size:12px;margin-right:6px}
+.danger{background:#4d1120;border-color:#7a1f2f}
+.success{background:#10331c;border-color:#1b6031}
+footer{position:sticky;bottom:0}

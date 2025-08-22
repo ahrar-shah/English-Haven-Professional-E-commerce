@@ -1,0 +1,37 @@
+<!doctype html><html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Enroll — English Haven</title><link rel="stylesheet" href="/style.css"/></head><body>
+<header><div class="brand"><div class="logo"></div><h1>English Haven</h1></div></header>
+<div class="grid" style="max-width:900px">
+  <div class="card">
+    <h3>Enroll in English Language Course</h3>
+    <form method="post" action="/enroll" enctype="multipart/form-data">
+      <div class="field">
+        <label>Choose Batch</label>
+        <select name="batchId">
+          <% if (!batches.length){ %><option disabled selected>No batches yet — contact admin</option><% } %>
+          <% batches.forEach(b=>{ %>
+            <option value="<%= b.id %>"><%= b.name %> — <%= b.timeSlot %></option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="field"><label>Timing slot (text)</label><input name="timing" placeholder="e.g., Mon/Wed 7–8 PM"/></div>
+      <div class="field">
+        <label>Payment method</label>
+        <select name="method" required>
+          <option value="EasyPaisa">EasyPaisa</option>
+          <option value="Meezan">Meezan</option>
+        </select>
+      </div>
+      <div class="card small">
+        <b>Account details will show after selection:</b>
+        <div>EasyPaisa: <b>Account 03XXXXXXXXX — Name: Your Name</b></div>
+        <div>Meezan Bank: <b>Account 0000-0000000 — Name: Your Name</b></div>
+      </div>
+      <div class="field"><label>Upload payment screenshot (required)</label><input type="file" name="proof" accept="image/*" required/></div>
+      <button class="btn cta">Complete Enrollment</button>
+    </form>
+  </div>
+  <div class="card small">Online class at WhatsApp number: +92 322 2694045</div>
+</div>
+<a class="whatsapp" href="https://wa.me/923222694045" target="_blank">WhatsApp us: +92 322 2694045</a>
+</body></html>

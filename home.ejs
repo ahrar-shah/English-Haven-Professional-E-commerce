@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>English Haven — 100% Online</title>
+  <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo"></div>
+      <h1>English Haven</h1>
+    </div>
+    <nav class="nav">
+      <a class="btn" href="/">Home</a>
+      <a class="btn" href="/enroll">Enroll</a>
+      <% if (user) { %>
+        <a class="btn" href="/portal">Portal</a>
+        <form method="post" action="/logout" style="display:inline">
+          <button class="btn">Logout</button>
+        </form>
+      <% } else { %>
+        <a class="btn" href="/login">Login</a>
+        <a class="btn cta" href="/signup">Sign up</a>
+      <% } %>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Master English. Learn from anywhere.</h2>
+    <p>English Haven is a 100% online English language program with live batches, quizzes, and a simple attendance system.</p>
+    <div>
+      <span class="tag">Online class at WhatsApp number: +92 322 2694045</span>
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <h3>Why English Haven?</h3>
+      <p>Structured batches, weekly quizzes, and simple attendance. Your progress, centralized.</p>
+    </div>
+    <div class="card">
+      <h3>How it works</h3>
+      <p>Sign up, pick a batch and timing slot, pay via EasyPaisa or Meezan, upload your payment screenshot, and get enrolled.</p>
+    </div>
+    <div class="card">
+      <h3>Pricing</h3>
+      <p class="small">First payment at enrollment → <b>Paid</b>. After 30 days, status becomes <b>Pending</b> until you pay again.</p>
+    </div>
+  </section>
+
+  <a class="whatsapp" href="https://wa.me/923222694045" target="_blank">WhatsApp us: +92 322 2694045</a>
+  <footer>
+    <div>© English Haven</div>
+    <div class="small">Online class at WhatsApp number: +92 322 2694045</div>
+  </footer>
+</body>
+</html>
